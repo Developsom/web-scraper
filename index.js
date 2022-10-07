@@ -15,7 +15,7 @@ axios(url)
         const companies = []
 
         D('.TbwUpd NJjxre', html).each(function() {
-            const companyName = D(this).text()
+            const companyName = D(this).find('iUh30 qLRx3b tjvcx').text()
             companies.push({
                 companyName
             })
