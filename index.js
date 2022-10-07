@@ -11,7 +11,16 @@ const url = 'https://www.google.nl/search?q=https://myascentium.com/ApplyNow/Com
 axios(url)
     .then(response => {
         const html = response.data
-        console.log(html)
-    })
+        const D = cheerio.load(html)
+        const companies = []
+
+        D('.TbwUpd NJjxre', html).each(function() {
+            const companyName = D(this).text()
+            companies.push({
+                companyName
+            })
+        })
+        console.log(companies)
+    }).catch(err => console.log(err))
 
 app.listen(PORT, () => console.log(`server running on PORT ${PORT}`))
